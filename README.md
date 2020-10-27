@@ -1,8 +1,19 @@
 # ROS Package Beginner Tutorials
 ## About
-This Respository consists of a ROS package for establishing a publisher and a subscriber node. The publisher publishes a string message onto the topic "chatter". The subscriber node subscribes to the corresponding topic.
+This Respository consists of a ROS package for beginners for establishing a publisher and a subscriber node. The publisher publishes a string message onto the topic "chatter". The subscriber node subscribes to the corresponding topic.
 ### Author
 Aditya Khopkar, akhopkar@umd.edu
+
+### Tutorial Steps
+If you want to create your own ROS package, you may follow the steps as follows:
+1. Step 1: [Navigating ROS Wiki](http://wiki.ros.org/ROS/Tutorials/NavigatingTheWiki)
+2. Step 2: [Navigating the Filesystem](http://wiki.ros.org/ROS/Tutorials/NavigatingTheFilesystem)
+3. Step 3: [Creating Catkin Package](http://wiki.ros.org/ROS/Tutorials/CreatingPackage)
+4. Step 4: [Building the Package](http://wiki.ros.org/ROS/Tutorials/BuildingPackages)
+5. Step 5: [Understanding Nodes](http://wiki.ros.org/ROS/Tutorials/UnderstandingNodes)
+6. Step 6: [Understanding Topics](http://wiki.ros.org/ROS/Tutorials/UnderstandingTopics)
+7. Step 7: [Writing Publisher Subscriber](http://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28c%2B%2B%29)
+8. Step 8: [Examining Publisher Subscriber](http://wiki.ros.org/ROS/Tutorials/ExaminingPublisherSubscriber) 
 
 ## Dependencies
 The project depends on the following dependencies
