@@ -1,4 +1,5 @@
 # ROS Package Beginner Tutorials
+[![License](https://img.shields.io/badge/License-MIT%20-blue.svg)](https://github.com/akhopkar01/beginner-tutorial/blob/master/LICENSE)
 ## About
 This Respository consists of a ROS package for beginners for establishing a publisher and a subscriber node. The publisher publishes a string message onto the topic "chatter". The subscriber node subscribes to the corresponding topic.
 ### Author
