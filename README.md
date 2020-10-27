@@ -1,5 +1,5 @@
 # ROS Package Beginner Tutorials
-[![License](https://img.shields.io/badge/License-MIT%20-blue.svg)](https://github.com/akhopkar01/beginner-tutorial/blob/master/LICENSE)
+[![License](https://img.shields.io/badge/License-MIT%20-lightgreen.svg)](https://github.com/akhopkar01/beginner-tutorial/blob/master/LICENSE)
 ## About
 This Respository consists of a ROS package for beginners for establishing a publisher and a subscriber node. The publisher publishes a string message onto the topic "chatter". The subscriber node subscribes to the corresponding topic.
 ### Author
@@ -44,10 +44,10 @@ source devel/setup.bash
 To execute the rosnodes, we do the following:
 1. Open a new terminal
 2. Run ```roscore```
-3. Open a new terminal
+3. Open a new terminal and go to ```cd ~/catkin_ws```
 4. Run ```source devel/setup.bash```
 5. Run ```rosrun beginner_tutorials talker```
-6. Open a new terminal
+6. Open a new terminal and go to ```cd ~/catkin_ws```
 7. Run ```source devel/setup.bash```
 8. Run ```rosrun beginner_tutorials listener``` 
  
