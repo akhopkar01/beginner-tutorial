@@ -32,6 +32,23 @@ int main(int argc, char **argv) {
   
   ros::init(argc, argv, "talker");
   ros::NodeHandle n;
+  float freq;
+  if(argc < 1) {
+    ROS_FATAL_STREAM("Not enough arguments! Application terminating");
+    system("rosnode kill /talker");
+    system("rosnode kill /listener");
+    ros::shutdown();
+    EXIT_FAILURE;
+  }
+  else {
+    freq = atoi(argv[1]);
+  }
+  ROS_DEBUG_STREAM("The frequency has been set to : " << freq);
+  if(freq <= 0) {
+    ROS_ERROR_STREAM("Frequency cannot be < or = 0");
+    freq = 1;
+    ROS_INFO_STREAM("Setting frequency to lowest " << freq);
+  }
 
   // Create publisher node to the topic 'chatter'
   ros::Publisher chatter_pub = n.advertise<std_msgs::String>("chatter", 1000);
