@@ -49,7 +49,7 @@ find_package(catkin REQUIRED COMPONENTS
 
 ## Declare ROS messages and services
 add_message_files(FILES Num.msg)
-add_service_files(FILES AddTwoInts.srv)
+add_service_files(FILES AddTwoInts.srv ChangeString.srv)
 
 ## Generate added messages and services
 generate_messages(DEPENDENCIES std_msgs)
