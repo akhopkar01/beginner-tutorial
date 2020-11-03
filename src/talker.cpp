@@ -15,6 +15,11 @@
 // Gloabal variable newstring
 std::string newstring{"This is Week 9! enpm808x"};
 
+/**
+ * @brief: Service callback function to change string
+ * @param: Service request, Service response
+ * @return: bool
+ */
 bool changeString(beginner_tutorials::ChangeString::Request& req,
                   beginner_tutorials::ChangeString::Response& res) {
   res.output = req.input;
