@@ -6,14 +6,22 @@
  * @author: Aditya Khopkar
  * ****************************************************************************************/
 
+
 #include <sstream>
 #include <string>
-#include <beginner_tutorials/ChangeString.h>
+#include "beginner_tutorials/ChangeString.h"
 #include "ros/ros.h"
 #include "std_msgs/String.h"
 
-// Gloabal variable newstring
-std::string newstring{"This is Week 9! enpm808x"};
+/**
+ * @brief: Struct wrapper for string message
+ * @param: None
+ * @return: None 
+ */
+struct NewMsg {
+  std::string newstring{"This is Week 9! enpm808x"};
+} nm;
+
 
 /**
  * @brief: Service callback function to change string
@@ -23,7 +31,7 @@ std::string newstring{"This is Week 9! enpm808x"};
 bool changeString(beginner_tutorials::ChangeString::Request& req,
                   beginner_tutorials::ChangeString::Response& res) {
   res.output = req.input;
-  newstring = res.output;
+  nm.newstring = res.output;
   ROS_WARN_STREAM("The string is being changes due to service call");
   return true;
 }
@@ -34,20 +42,19 @@ bool changeString(beginner_tutorials::ChangeString::Request& req,
  * @return: Exit code 0
  */
 int main(int argc, char **argv) {
-  
   ros::init(argc, argv, "talker");
   ros::NodeHandle n;
   float freq{0};
-  if(argc > 1) {
+  if (argc > 1) {
     freq = atoi(argv[1]);
   }
   ROS_DEBUG_STREAM("The frequency has been set to : " << freq);
-  if(freq == 0) {
+  if (freq == 0) {
     ROS_ERROR_STREAM("Frequency cannot be < or = 0");
     freq = 1;
     ROS_WARN_STREAM("Setting frequency to lowest " << freq);
   }
-  if(freq < 0) {
+  if (freq < 0) {
     ROS_FATAL_STREAM("Frequency cannot be negative. Terminating!!");
     ros::shutdown();
   }
@@ -63,7 +70,7 @@ int main(int argc, char **argv) {
     // Message object of topic std_msgs::String
     std_msgs::String msg;
     std::stringstream ss;
-    ss << newstring << count;
+    ss << nm.newstring << count;
     msg.data = ss.str();
 
     // Display ROS info
