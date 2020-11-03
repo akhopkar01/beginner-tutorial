@@ -1,0 +1,14 @@
+<!--This is a launch file for beginner_tutorials package-->
+<!--Launches the publisher and subscriber nodes using roslaunch command-->
+<!--maintainer=@Aditya Khopkar email=akhopkar@terpmail.umd.edu-->
+<launch>
+    <!--Setting argument of frequency default 10Hz-->
+    <arg name="freq" default="10" />
+
+    <!--Creates a publisher node-->
+    <node name="Talker" pkg="beginner_tutorials" type="talker" output="screen" args="$(arg freq)" />
+    
+    <!--Creates a subscriber node-->
+    <node name="Listener" pkg="beginner_tutorials" type="listener" output="screen" />
+
+</launch>
