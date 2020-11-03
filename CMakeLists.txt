@@ -9,6 +9,9 @@ find_package(catkin REQUIRED COMPONENTS
   genmsg
 )
 
+## Set C++11 standard for cmake project
+set(CMAKE_CXX_STANDARD 11)
+
 ## Declare ROS messages and services
 # add_message_files(FILES Num.msg)
 add_service_files(FILES ChangeString.srv)
