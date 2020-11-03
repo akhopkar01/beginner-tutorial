@@ -3,7 +3,7 @@
 <!--maintainer=@Aditya Khopkar email=akhopkar@terpmail.umd.edu-->
 <launch>
     <!--Setting argument of frequency default 10Hz-->
-    <arg name="freq" default="10" />
+    <arg name="freq" default="0"/>
 
     <!--Creates a publisher node-->
     <node name="Talker" pkg="beginner_tutorials" type="talker" output="screen" args="$(arg freq)" />
