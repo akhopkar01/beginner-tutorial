@@ -19,7 +19,7 @@
  * @return: None 
  */
 struct NewMsg {
-  std::string newstring{"This is Week 9! enpm808x"};
+  std::string newString{"This is Week 9! enpm808x"};
 } nm;
 
 
@@ -31,7 +31,7 @@ struct NewMsg {
 bool changeString(beginner_tutorials::ChangeString::Request& req,
                   beginner_tutorials::ChangeString::Response& res) {
   res.output = req.input;
-  nm.newstring = res.output;
+  nm.newString = res.output;
   ROS_WARN_STREAM("The string is being changes due to service call");
   return true;
 }
@@ -56,13 +56,15 @@ int main(int argc, char **argv) {
   }
   if (freq < 0) {
     ROS_FATAL_STREAM("Frequency cannot be negative. Terminating!!");
+    system("rosnode kill /Talker");
+    system("rosnode kill /Listener");
     ros::shutdown();
   }
 
   // Create publisher node to the topic 'chatter'
   ros::Publisher chatter_pub = n.advertise<std_msgs::String>("chatter", 1000);
   ros::ServiceServer serve = n.advertiseService("ChangeString", changeString);
-  ros::Rate loop_rate(1);
+  ros::Rate loop_rate(freq);
 
   // Initialize count of message
   int count = 0;
@@ -70,7 +72,7 @@ int main(int argc, char **argv) {
     // Message object of topic std_msgs::String
     std_msgs::String msg;
     std::stringstream ss;
-    ss << nm.newstring << count;
+    ss << nm.newString << count;
     msg.data = ss.str();
 
     // Display ROS info
