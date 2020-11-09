@@ -27,7 +27,7 @@ TEST(TransformBroadcaster, tfListener) {
  * @brief: Tests the service call by calling a service client
  * @param: Name of the test case, name of the test
  * */
-TEST(ChangeString, callService) { 
+TEST(ChangeString, callService) {
     ros::NodeHandle n;
     ros::ServiceClient client =
         n.serviceClient<beginner_tutorials::ChangeString>("ChangeString");

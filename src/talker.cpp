@@ -9,7 +9,7 @@
 
 #include <sstream>
 #include <string>
-#include <tf/transform_broadcaster.h>
+#include "tf/transform_broadcaster.h"
 #include "beginner_tutorials/ChangeString.h"
 #include "ros/ros.h"
 #include "std_msgs/String.h"
@@ -87,10 +87,9 @@ int main(int argc, char **argv) {
     // Set rotation of the transform using quaternion
     transform.setRotation(q);
 
-    // Send the transform using @param instance of transform, time stamp, parent frame, child frame
+    // Send the transform
     br.sendTransform(
         tf::StampedTransform(transform, ros::Time::now(), "world", "talk"));
-    
     // Message object of topic std_msgs::String
     std_msgs::String msg;
     std::stringstream ss;
