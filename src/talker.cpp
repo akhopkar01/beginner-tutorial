@@ -9,6 +9,7 @@
 
 #include <sstream>
 #include <string>
+#include <tf/transform_broadcaster.h>
 #include "beginner_tutorials/ChangeString.h"
 #include "ros/ros.h"
 #include "std_msgs/String.h"
@@ -68,7 +69,28 @@ int main(int argc, char **argv) {
 
   // Initialize count of message
   int count = 0;
+
+  // Create broadcaster intance
+  static tf::TransformBroadcaster br;
+
+  // Create quaternion & transform instance
+  tf::Transform transform;
+
   while (ros::ok()) {
+    // Set origin for the transform frame
+    transform.setOrigin(tf::Vector3(1.0, 2.0, 0.0));
+
+    // Set quaternion -> (Roll, Pitch Yaw) using fixed axis
+    tf::Quaternion q;
+    q.setRPY(0, 0, 10);
+
+    // Set rotation of the transform using quaternion
+    transform.setRotation(q);
+
+    // Send the transform using @param instance of transform, time stamp, parent frame, child frame
+    br.sendTransform(
+        tf::StampedTransform(transform, ros::Time::now(), "world", "talk"));
+    
     // Message object of topic std_msgs::String
     std_msgs::String msg;
     std::stringstream ss;
