@@ -5,10 +5,15 @@
     <!--Setting argument of frequency default 10Hz-->
     <arg name="freq" default="0"/>
 
+    <!--Setting argument for rosbag-->
+    <arg name="rosbag" default="disable"/>
+
     <!--Creates a publisher node-->
     <node name="Talker" pkg="beginner_tutorials" type="talker" output="screen" args="$(arg freq)" />
     
     <!--Creates a subscriber node-->
     <node name="Listener" pkg="beginner_tutorials" type="listener" output="screen" />
+    <!--rosbag package node to record-->
+    <node name="record" pkg="rosbag" type="record" args="-a -O $(find beginner_tutorials)/results/record.bag" if="$(eval rosbag=='enable')" />
 
 </launch>
