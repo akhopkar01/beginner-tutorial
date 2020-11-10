@@ -140,3 +140,10 @@ In the previous terminal, play the bag file using the command: ```rosbag play re
 You can inspect the rosbag by following techniques:
 ```rosbag info record.bag``` To get the info of the recorded bagfile. You can see the /Chatter topic in the info.
 ```rosbag check record.bag``` TO check if the bagfile is playable or not. You may see this [link](http://wiki.ros.org/ROS/Tutorials/Recording%20and%20playing%20back%20data) for reference.
+
+### NOTE
+It can be observed that, everytime a new terminal is opened you have to write the command ```source devel/setup.bash```. It gets really annoying to do so. The following workaround could be used:
+```
+$ echo "source ~/catkin_ws/devel/setup.bash" >> ./bashrc
+```
+By doing this, you wont have to worry about sourcing the setup file every time for your workspace.
